@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>registration form </title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+
+        <div class="bg-container">
+            <form onsubmit="onSubmitRegistrationForm()" method="POST" class="form-container">
+                <h1>Registration Form</h1>
+                <!-- name input field -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <!-- address input field -->
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address" required>
+                
+                <p id="errorMessage"></p>
+                <button  type="submit">Submit</button>
+            </form>
+        </div>
+        <script>
+
+            const errorMessage = document.getElementById('errorMessage');
+
+            async function onSubmitRegistrationForm(event){
+                
+                 // Prevent the form from submitting the default way
+                event.preventDefault();
+
+            // Get the values of name and address
+            const name = document.getElementById('name').value.trim();
+            const address = document.getElementById('address').value.trim();
+
+            // Clear any previous error messages
+            errorMessage.textContent = '';
+
+            // Simple validation
+            if (name === '' || address === '') {
+                errorMessage.textContent = 'Please fill in both fields!';
+                return;
+            }
+
+            // Prepare the data to send
+            const formData = {
+                name: name,
+                address: address
+            };
+            try {
+                // Send data to backend using fetch
+                const response = await fetch('https://smoke-trees-assignment-mf4h.onrender.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Handle the response from the backend
+                if (response.ok) {
+                    const result = await response.json();
+                    alert('Registration successful!');
+                    console.log('Server Response:', result);
+
+                    // Reset the form fields
+                    form.reset();
+                } else {
+                    errorMessage.textContent = '*Error: Registration failed!';
+                    console.error('Error:', response.statusText);
+                }
+            } catch (error) {
+                errorMessage.textContent = '*Error: Could not connect to the server!';
+                console.error('Error:', error);
+            }
+
+            }
+
+        </script>
+    </body>
+</html>
