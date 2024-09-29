@@ -7,6 +7,7 @@ This project is a backend application built for SmokeTrees as part of the assign
 - [Technologies Used](#technologies-used)
 - [Database Design](#database-design)
 - [Setup and Installation](#setup-and-installation)
+- [user interface (Frontend application) ](#User-Interface)
 - [API Endpoints](#api-endpoints)
 
 
@@ -22,6 +23,9 @@ This project is a backend application built for SmokeTrees as part of the assign
 - **Node.js**: Server-side JavaScript runtime
 - **Express.js**: Web framework for Node.js
 - **SQLite**: Relational database to store user and address information
+- **HTML**: Structure of the web page.
+- **CSS**: Styling the form and layout.
+- **JavaScript**: Handling form submission and displaying messages.
 
 
 ## Database Design
@@ -68,7 +72,11 @@ Follow these steps to set up the project locally:
 
 5. The server will run on http://localhost:3000 by default.
 
-6. we can test the API using tools like POSTMAN by passing required data in the body 
+6. Fill the registration form and submit the data . user get the appropriate message .
+
+## User Interface 
+
+ -  The application contains registration form , which collects user name and address from the user .user need to submit the form after filling then user get appropriate message .
 
 # API Endpoints
 
