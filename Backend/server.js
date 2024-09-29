@@ -14,7 +14,7 @@ const app=express()
 
 app.use(express.json()) // to data convert into json format
 app.use(cors({
-    origin: 'https://smoke-trees-assignment-4odb.vercel.app/', // Allow all origins
+    origin: 'https://smoke-trees-assignment-4odb.vercel.app/', // Allow  origin
     methods: ['GET', 'POST'], // Specify allowed methods
     allowedHeaders: ['Content-Type']
 }))  
