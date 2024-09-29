@@ -14,7 +14,7 @@ const app=express()
 
 app.use(express.json()) // to data convert into json format
 app.use(cors({
-    origin: '*', // Allow all origins
+    origin: 'https://smoke-trees-assignment-4odb.vercel.app/', // Allow all origins
     methods: ['GET', 'POST'], // Specify allowed methods
     allowedHeaders: ['Content-Type']
 }))  
@@ -46,7 +46,7 @@ app.post("/register",async(request ,response)=>{
 
         const {name , address}=request.body
 
-        //checking whether is already present or not 
+        //checking whether the user is already present or not 
         const getUserQuery = `SELECT * FROM user WHERE name = '${name}' `;
         const dbUser = await db.get(getUserQuery);
 
