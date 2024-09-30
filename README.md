@@ -7,8 +7,9 @@ This project is a backend application built for SmokeTrees as part of the assign
 - [Technologies Used](#technologies-used)
 - [Database Design](#database-design)
 - [Setup and Installation](#setup-and-installation)
-- [user interface (Frontend application) ](#User-Interface)
+- [user interface (Frontend application) ](#user-interface)
 - [API Endpoints](#api-endpoints)
+- [Deployment Links](#deployment-links)
 
 
 ## Project Overview
@@ -77,8 +78,12 @@ Follow these steps to set up the project locally:
 ## User Interface 
 
  -  The application contains registration form , which collects user name and address from the user .user need to submit the form after filling then user get appropriate message .
+      - sucsess message is :
+          - Registration successfull !
+      - failure message is :
+           - User already exists (when user is registered already ) 
 
-# API Endpoints
+## API Endpoints
 
 - POST /register 
     - Description: This endpoint is used to register
@@ -119,11 +124,10 @@ Follow these steps to set up the project locally:
                 "error_msg": "An error occurred .The error is <--error -->"
              }
 
+        
+## Deployment Links
 
+   - deployment link of the application : https://smoke-trees-assignment-4odb.vercel.app/
 
-
-
-
-
-
+ 
 
