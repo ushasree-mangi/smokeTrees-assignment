@@ -14,9 +14,9 @@ const app=express()
 
 
 const allowedOrigins = [
-    'https://smoke-trees-assignment-4odb-git-main-ushasree-mangis-projects.vercel.app/',
-    'https://smoke-trees-assignment-4odb-ushasree-mangis-projects.vercel.app/',
-    'https://smoke-trees-assignment-4odb.vercel.app/'
+    'https://smoke-trees-assignment-4odb-git-main-ushasree-mangis-projects.vercel.app',
+    'https://smoke-trees-assignment-4odb-ushasree-mangis-projects.vercel.app',
+    'https://smoke-trees-assignment-4odb.vercel.app'
     
   ];
   
