@@ -12,13 +12,35 @@ const uuidv4=v4
 const {open}=sqlite
 const app=express()
 
-app.use(express.json()) // to data convert into json format
-app.use(cors({
-    origin: 'https://smoke-trees-assignment-4odb.vercel.app', // Allow  origin
-    methods: ['GET', 'POST'], // Specify allowed methods
-    allowedHeaders: ['Content-Type']
-}))  
 
+const allowedOrigins = [
+    'https://smoke-trees-assignment-4odb-git-main-ushasree-mangis-projects.vercel.app/',
+    'https://smoke-trees-assignment-4odb-ushasree-mangis-projects.vercel.app/',
+    'https://smoke-trees-assignment-4odb.vercel.app/'
+    
+  ];
+  
+
+const corsOptions = {
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true // Allow cookies and credentials
+  }; 
+  
+  
+  app.use(express.json())
+  app.use(cors(corsOptions));
+  
+  app.options('*', cors(corsOptions));
+
+  
 let db=null
 const PORT= process.env.PORT || 4000
 const dbPath=path.join(__dirname, "myAppDatabase.db")
